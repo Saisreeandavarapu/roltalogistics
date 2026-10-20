@@ -1,0 +1,375 @@
+@import "tailwindcss";
+
+@theme {
+  --color-logistics-blue: #2567A8;
+  --color-signal-yellow: #F6DE50;
+  --color-dark-main: #111827;
+  --color-light-bg: #F7F9FC;
+  --font-sans: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+}
+
+/* ============================================================
+   1. GLOBAL MOTION FOUNDATION & EASING SYSTEM
+   ============================================================ */
+:root {
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-fast: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: clip;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', 'Inter', sans-serif;
+    background-color: #F7F9FC;
+    color: #111827;
+    overflow-x: clip;
+  }
+}
+
+/* Watermark text outline */
+.text-stroke-watermark {
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.12);
+  color: transparent;
+}
+
+/* Industrial aesthetic utilities */
+.border-industrial {
+  border-color: #E2E8F0;
+}
+
+.shadow-subtle {
+  box-shadow: 0 4px 20px -2px rgba(17, 24, 39, 0.05);
+}
+
+.shadow-card {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 10px 25px -5px rgba(37, 103, 168, 0.04);
+}
+
+/* ============================================================
+   2. REUSABLE MOTION & REVEAL KEYFRAMES
+   ============================================================ */
+
+/* Section Entrance - Default */
+@keyframes sectionFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Editorial Image Reveal (Horizontal Clip-path) */
+@keyframes imageClipReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0.7;
+  }
+  to {
+    clip-path: inset(0 0% 0 0);
+    opacity: 1;
+  }
+}
+
+/* Image Reveal from Right */
+@keyframes imageClipRevealRight {
+  from {
+    clip-path: inset(0 0 0 100%);
+    opacity: 0.7;
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
+  }
+}
+
+/* Header On-Load Entrances */
+@keyframes headerLogoEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes headerNavEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes headerCtaEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Progressive Route Line Stroke Animation */
+@keyframes routeDrawLine {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Custom route pulse indicator */
+@keyframes routePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.35);
+    opacity: 0.7;
+  }
+}
+
+.animate-route-pulse {
+  animation: routePulse 2.5s infinite ease-in-out;
+}
+
+/* Chevron Bounce */
+@keyframes bounceChevron {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 1;
+  }
+}
+
+.animate-chevron-bounce {
+  animation: bounceChevron 2s infinite ease-in-out;
+}
+
+/* Dotted route stroke animation */
+@keyframes strokeDash {
+  to {
+    stroke-dashoffset: -32;
+  }
+}
+
+.animate-dash-line {
+  animation: strokeDash 3s linear infinite;
+}
+
+/* Route Marquee Infinite Loop Keyframes */
+@keyframes routeMarquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-33.333333%, 0, 0);
+  }
+}
+
+.animate-marquee-strip {
+  display: flex;
+  width: max-content;
+  animation: routeMarquee 42s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-strip:hover,
+.animate-marquee-strip.paused {
+  animation-play-state: paused !important;
+}
+
+/* Active Route Traveling Truck & Yellow Dot Animation */
+@keyframes truckTravel {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  95%, 100% {
+    left: 88%;
+    opacity: 0;
+  }
+}
+
+.animate-truck-travel {
+  animation: truckTravel 5.5s cubic-bezier(0.37, 0, 0.21, 1) infinite;
+  will-change: left, opacity;
+}
+
+/* Yellow Pulse Glow */
+@keyframes yellowDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(246, 222, 80, 0.7);
+  }
+  50% {
+    transform: scale(1.25);
+    box-shadow: 0 0 0 8px rgba(246, 222, 80, 0);
+  }
+}
+
+.animate-yellow-pulse {
+  animation: yellowDotPulse 2.4s ease-in-out infinite;
+}
+
+/* Masked Upward Text Reveal */
+@keyframes maskedUpwardReveal {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-masked-upward {
+  animation: maskedUpwardReveal 800ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* ============================================================
+   3. MOTION UTILITY CLASSES
+   ============================================================ */
+
+/* Section reveals */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 800ms var(--ease-editorial), transform 800ms var(--ease-editorial);
+}
+
+.reveal-visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* Image reveals */
+.image-reveal-init {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 950ms var(--ease-editorial), opacity 950ms var(--ease-editorial);
+}
+
+.image-reveal-active {
+  clip-path: inset(0 0% 0 0) !important;
+  opacity: 1 !important;
+}
+
+/* Stagger timings */
+.stagger-1 { transition-delay: 80ms; }
+.stagger-2 { transition-delay: 160ms; }
+.stagger-3 { transition-delay: 240ms; }
+.stagger-4 { transition-delay: 320ms; }
+
+/* Image hover behavior */
+.editorial-img-hover {
+  transition: transform 600ms var(--ease-smooth);
+}
+.editorial-img-hover:hover {
+  transform: scale(1.02);
+}
+
+/* Navigation Links underline micro-interaction */
+.nav-link-item {
+  position: relative;
+}
+.nav-link-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #2567A8;
+  transition: width 280ms var(--ease-editorial);
+}
+.nav-link-item:hover::after,
+.nav-link-item.active::after {
+  width: 100%;
+}
+
+/* Standard Button Micro-interactions */
+.btn-motion {
+  transition: transform 220ms var(--ease-editorial), background-color 220ms var(--ease-editorial), border-color 220ms var(--ease-editorial), box-shadow 220ms var(--ease-editorial);
+}
+.btn-motion:hover {
+  transform: translateY(-1px);
+}
+.btn-motion:active {
+  transform: scale(0.98);
+}
+
+/* Form input focus state */
+.form-input-focus {
+  transition: border-color 200ms var(--ease-fast), box-shadow 200ms var(--ease-fast), background-color 200ms var(--ease-fast);
+}
+.form-input-focus:focus {
+  border-color: #2567A8 !important;
+  box-shadow: 0 0 0 3px rgba(37, 103, 168, 0.12);
+}
+
+/* ============================================================
+   4. MOBILE SPECIFIC OVERRIDES (< 640px)
+   ============================================================ */
+@media (max-width: 640px) {
+  .reveal-hidden {
+    transform: translateY(16px);
+    transition-duration: 650ms;
+  }
+}
+
+/* ============================================================
+   5. PREFERS-REDUCED-MOTION (MANDATORY ACCESSIBILITY)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-hidden,
+  .image-reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  .animate-dash-line,
+  .animate-route-pulse,
+  .animate-chevron-bounce,
+  .animate-marquee-strip,
+  .animate-truck-travel,
+  .animate-yellow-pulse {
+    animation: none !important;
+  }
+}
