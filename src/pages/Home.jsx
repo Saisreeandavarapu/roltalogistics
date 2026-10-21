@@ -6,7 +6,7 @@ import RouteCard from '../components/RouteCard';
 import RouteNetwork from '../components/RouteNetwork';
 import ProcessSection from '../components/ProcessSection';
 import CTASection from '../components/CTASection';
-import trustedTruckImg from '../assets/images/hero_truck_warehouse.jpg';
+import trustedTruckImg from '../assets/images/hero_truck_warehouse.png';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function Home() {

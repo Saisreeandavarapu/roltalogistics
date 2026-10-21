@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, ArrowRight, MessageSquare, PhoneCall } from 'lucide-react';
-import ctaTruckImg from '../assets/images/hero_truck_highway.jpg';
+import ctaTruckImg from '../assets/images/hero_truck_highway.png';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function CTASection() {

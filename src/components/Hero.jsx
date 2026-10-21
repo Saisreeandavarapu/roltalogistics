@@ -2,11 +2,11 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, ArrowRight, ChevronDown, MapPin, Truck, Calendar, ShieldCheck, ChevronLeft, ChevronRight } from 'lucide-react';
 
-import img1 from '../assets/images/hero_truck_highway.jpg';
-import img2 from '../assets/images/hero_truck_warehouse.jpg';
-import img3 from '../assets/images/hero_truck_loading.jpg';
-import img4 from '../assets/images/hero_truck_sunset.jpg';
-import img5 from '../assets/images/hero_truck_longhaul.jpg';
+import img1 from '../assets/images/hero_truck_highway.png';
+import img2 from '../assets/images/hero_truck_warehouse.png';
+import img3 from '../assets/images/hero_truck_loading.png';
+import img4 from '../assets/images/hero_truck_sunset.png';
+import img5 from '../assets/images/hero_truck_longhaul.png';
 
 export default function Hero() {
   const slides = [
@@ -357,16 +357,14 @@ export default function Hero() {
       {slides.map((slide, idx) => (
         <div
           key={idx}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${
-            idx === currentIndex ? 'opacity-100 z-0' : 'opacity-0 -z-10'
-          }`}
+          className={`absolute inset-0 transition-opacity duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] ${idx === currentIndex ? 'opacity-100 z-0' : 'opacity-0 -z-10'
+            }`}
         >
           <img
             src={slide.img}
             alt="roltaLogistics Heavy Freight Truck"
-            className={`w-full h-full object-cover object-center ${
-              idx === currentIndex ? 'hero-img-active' : 'scale-100'
-            }`}
+            className={`w-full h-full object-cover object-center ${idx === currentIndex ? 'hero-img-active' : 'scale-100'
+              }`}
           />
           {/* Gradient Dark Overlay tuned for text contrast while preserving truck imagery */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#0b101b]/95 via-[#111827]/85 to-[#111827]/40"></div>
@@ -397,9 +395,8 @@ export default function Hero() {
             {/* Step 1: Top Sub-heading Tag Label with Horizontal Mask Reveal */}
             <div className="overflow-hidden">
               <div
-                className={`inline-flex items-center space-x-2.5 px-3.5 py-1.5 bg-[#2567A8]/40 border border-[#2567A8]/60 backdrop-blur-xs text-[#F6DE50] text-xs sm:text-sm font-extrabold uppercase tracking-wider ${
-                  isExiting ? 'editorial-text-exit-generic' : 'editorial-tag-anim'
-                }`}
+                className={`inline-flex items-center space-x-2.5 px-3.5 py-1.5 bg-[#2567A8]/40 border border-[#2567A8]/60 backdrop-blur-xs text-[#F6DE50] text-xs sm:text-sm font-extrabold uppercase tracking-wider ${isExiting ? 'editorial-text-exit-generic' : 'editorial-tag-anim'
+                  }`}
               >
                 <span className="w-2 h-2 rounded-full bg-[#F6DE50] animate-pulse"></span>
                 <span>{currentSlide.tag}</span>
@@ -411,15 +408,14 @@ export default function Hero() {
               {titleLines.map((line, idx) => (
                 <div key={idx} className="overflow-hidden py-0.5">
                   <span
-                    className={`block transform ${
-                      isExiting
+                    className={`block transform ${isExiting
                         ? direction === 1
                           ? 'editorial-h1-exit-up'
                           : 'editorial-h1-exit-down'
                         : direction === 1
                           ? 'editorial-h1-enter-up'
                           : 'editorial-h1-enter-down'
-                    }`}
+                      }`}
                     style={{
                       animationDelay: isExiting ? '0ms' : `${90 + idx * 100}ms`,
                     }}
@@ -433,9 +429,8 @@ export default function Hero() {
             {/* Step 3: Subtitle Paragraph — Left to Right Horizontal Mask Reveal */}
             <div className="min-h-[4.25rem] sm:min-h-[3.5rem] lg:min-h-[3rem] flex items-start overflow-hidden">
               <p
-                className={`text-base sm:text-lg text-gray-200 font-normal leading-relaxed max-w-2xl drop-shadow-xs ${
-                  isExiting ? 'editorial-text-exit-generic' : 'editorial-subtitle-anim'
-                }`}
+                className={`text-base sm:text-lg text-gray-200 font-normal leading-relaxed max-w-2xl drop-shadow-xs ${isExiting ? 'editorial-text-exit-generic' : 'editorial-subtitle-anim'
+                  }`}
               >
                 {currentSlide.subtitle}
               </p>
@@ -447,9 +442,8 @@ export default function Hero() {
               {/* Primary CTA Button (Enters from Left) */}
               <Link
                 to="/contact"
-                className={`inline-flex items-center justify-center px-8 py-4 text-sm sm:text-base font-extrabold text-[#111827] bg-[#F6DE50] hover:bg-[#ebd23c] border border-[#e0c735] uppercase tracking-wider transition-all duration-200 shadow-lg group active:scale-98 hover:-translate-y-0.5 ${
-                  isExiting ? 'editorial-text-exit-generic' : 'editorial-cta-primary-anim'
-                }`}
+                className={`inline-flex items-center justify-center px-8 py-4 text-sm sm:text-base font-extrabold text-[#111827] bg-[#F6DE50] hover:bg-[#ebd23c] border border-[#e0c735] uppercase tracking-wider transition-all duration-200 shadow-lg group active:scale-98 hover:-translate-y-0.5 ${isExiting ? 'editorial-text-exit-generic' : 'editorial-cta-primary-anim'
+                  }`}
               >
                 <span>GET A TRANSPORT QUOTE</span>
                 <ArrowRight className="w-5 h-5 ml-3 transition-transform duration-200 group-hover:translate-x-1" />
@@ -458,9 +452,8 @@ export default function Hero() {
               {/* Secondary Call Button Widget (Enters from Right) */}
               <a
                 href="tel:+9177831589"
-                className={`flex items-center space-x-3.5 group ${
-                  isExiting ? 'editorial-text-exit-generic' : 'editorial-cta-secondary-anim'
-                }`}
+                className={`flex items-center space-x-3.5 group ${isExiting ? 'editorial-text-exit-generic' : 'editorial-cta-secondary-anim'
+                  }`}
               >
                 <div className="w-12 h-12 rounded-full bg-[#111827]/90 border-2 border-[#2567A8] text-[#F6DE50] group-hover:border-[#F6DE50] group-hover:bg-[#2567A8] group-hover:text-white transition-all duration-300 flex items-center justify-center shadow-md shrink-0">
                   <Phone className="w-5 h-5" />
@@ -491,9 +484,8 @@ export default function Hero() {
             </span>
             <span
               key={`route-${animKey}`}
-              className={`text-[#F6DE50] tracking-wide font-extrabold ${
-                isExiting ? 'editorial-text-exit-generic' : 'editorial-route-anim'
-              }`}
+              className={`text-[#F6DE50] tracking-wide font-extrabold ${isExiting ? 'editorial-text-exit-generic' : 'editorial-route-anim'
+                }`}
             >
               {currentSlide.routeBadge}
             </span>

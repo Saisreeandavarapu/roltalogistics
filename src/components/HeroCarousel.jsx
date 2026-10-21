@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import img1 from '../assets/images/hero_truck_highway.jpg';
-import img2 from '../assets/images/hero_truck_warehouse.jpg';
-import img3 from '../assets/images/hero_truck_loading.jpg';
-import img4 from '../assets/images/hero_truck_sunset.jpg';
-import img5 from '../assets/images/hero_truck_longhaul.jpg';
+import img1 from '../assets/images/hero_truck_highway.png';
+import img2 from '../assets/images/hero_truck_warehouse.png';
+import img3 from '../assets/images/hero_truck_loading.png';
+import img4 from '../assets/images/hero_truck_sunset.png';
+import img5 from '../assets/images/hero_truck_longhaul.png';
 
 export default function HeroCarousel() {
   const images = [

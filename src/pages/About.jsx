@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, ArrowRight, Route, CheckCircle2, Building2 } from 'lucide-react';
 import CTASection from '../components/CTASection';
-import aboutTruckImg from '../assets/images/hero_truck_longhaul.jpg';
-import operationsImg from '../assets/images/hero_truck_sunset.jpg';
+import aboutTruckImg from '../assets/images/hero_truck_longhaul.png';
+import operationsImg from '../assets/images/hero_truck_sunset.png';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function About() {

@@ -2,11 +2,11 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Truck, Route, Shield, MapPin, Calendar, ArrowUpRight, CheckCircle2, ChevronDown } from 'lucide-react';
 import CTASection from '../components/CTASection';
-import servicesHeroImg from '../assets/images/hero_truck_highway.jpg';
-import loadingImg from '../assets/images/hero_truck_loading.jpg';
-import longHaulImg from '../assets/images/hero_truck_longhaul.jpg';
-import sunsetImg from '../assets/images/hero_truck_sunset.jpg';
-import warehouseImg from '../assets/images/hero_truck_warehouse.jpg';
+import servicesHeroImg from '../assets/images/hero_truck_highway.png';
+import loadingImg from '../assets/images/hero_truck_loading.png';
+import longHaulImg from '../assets/images/hero_truck_longhaul.png';
+import sunsetImg from '../assets/images/hero_truck_sunset.png';
+import warehouseImg from '../assets/images/hero_truck_warehouse.png';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
 const SERVICES = [
