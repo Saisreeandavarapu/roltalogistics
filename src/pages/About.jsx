@@ -5,6 +5,8 @@ import CTASection from '../components/CTASection';
 import aboutTruckImg from '../assets/images/hero_truck_longhaul.png';
 import operationsImg from '../assets/images/hero_truck_sunset.png';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../seoConfig';
 
 export default function About() {
   const [introRef, introVisible] = useScrollReveal({ threshold: 0.15 });
@@ -13,6 +15,18 @@ export default function About() {
 
   return (
     <div className="space-y-0">
+      {/* Dynamic SEO & Breadcrumb Schema */}
+      <SEO
+        title="About Us | roltaLogistics - Commercial Full Truck Load Transport India"
+        description="Learn about roltaLogistics, an established freight transport company providing dedicated Full Truck Load (FTL) logistics and interstate road transport across India."
+        canonical="/about"
+        keywords="About roltaLogistics, freight transport company India, road logistics provider, interstate freight company, commercial truck movement"
+        schema={getBreadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'About Us', url: '/about' },
+        ])}
+      />
+
       {/* Page Header Hero */}
       <section className="bg-white border-b border-gray-200 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,7 +92,11 @@ export default function About() {
               >
                 <img
                   src={aboutTruckImg}
-                  alt="roltaLogistics Commercial Truck on Highway"
+                  alt="Full Truck Load Long-Haul Transportation Truck on Interstate Highway - roltaLogistics"
+                  loading="lazy"
+                  decoding="async"
+                  width="700"
+                  height="450"
                   className="w-full h-[380px] sm:h-[450px] object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.02]"
                 />
               </div>
@@ -189,7 +207,11 @@ export default function About() {
               >
                 <img
                   src={operationsImg}
-                  alt="roltaLogistics Highway Transportation"
+                  alt="Interstate Commercial Goods Transportation Fleet at Sunset - roltaLogistics"
+                  loading="lazy"
+                  decoding="async"
+                  width="700"
+                  height="420"
                   className="w-full h-[360px] sm:h-[420px] object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.02]"
                 />
               </div>

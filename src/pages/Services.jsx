@@ -8,6 +8,8 @@ import longHaulImg from '../assets/images/hero_truck_longhaul.png';
 import sunsetImg from '../assets/images/hero_truck_sunset.png';
 import warehouseImg from '../assets/images/hero_truck_warehouse.png';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import SEO from '../components/SEO';
+import { getServicesSchema, getBreadcrumbSchema } from '../seoConfig';
 
 const SERVICES = [
   {
@@ -376,6 +378,21 @@ export default function Services() {
 
   return (
     <div className="space-y-0">
+      {/* Dynamic SEO & Service Schema */}
+      <SEO
+        title="Full Truck Load (FTL) & Commercial Logistics Services | roltaLogistics"
+        description="Comprehensive Full Truck Load (FTL) transportation, interstate long-haul freight movement, and dedicated truck solutions across India by roltaLogistics."
+        canonical="/services"
+        keywords="Full Truck Load FTL, dedicated truck capacity, interstate goods transport, highway logistics, commercial consignments, B2B logistics India"
+        schema={[
+          getServicesSchema(),
+          getBreadcrumbSchema([
+            { name: 'Home', url: '/' },
+            { name: 'Services', url: '/services' },
+          ]),
+        ]}
+      />
+
       <style>{`
         .svc-desktop { display: flex !important; }
         .svc-mobile { display: none !important; }
@@ -407,7 +424,15 @@ export default function Services() {
             </div>
             <div className="lg:col-span-5 group/img">
               <div className={`border border-gray-200 p-2 bg-[#F7F9FC] overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${heroVisible ? '[clip-path:inset(0_0_0_0)] opacity-100' : '[clip-path:inset(0_100%_0_0)] opacity-60'}`}>
-                <img src={servicesHeroImg} alt="Full Truck Load Freight" className="w-full h-[280px] sm:h-[320px] object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.02]" />
+                <img
+                  src={servicesHeroImg}
+                  alt="Full Truck Load Freight Transport on Highway - roltaLogistics"
+                  loading="lazy"
+                  decoding="async"
+                  width="600"
+                  height="320"
+                  className="w-full h-[280px] sm:h-[320px] object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.02]"
+                />
               </div>
             </div>
           </div>
@@ -502,7 +527,15 @@ export default function Services() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 group/img">
               <div className={`border border-gray-200 p-2 bg-[#F7F9FC] overflow-hidden transition-all duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] ${advantageVisible ? '[clip-path:inset(0_0_0_0)] opacity-100' : '[clip-path:inset(0_100%_0_0)] opacity-60'}`}>
-                <img src={loadingImg} alt="Freight Loading Operations" className="w-full h-[360px] sm:h-[420px] object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.02]" />
+                <img
+                  src={loadingImg}
+                  alt="Industrial Commercial Freight Loading at Logistics Facility - roltaLogistics"
+                  loading="lazy"
+                  decoding="async"
+                  width="700"
+                  height="420"
+                  className="w-full h-[360px] sm:h-[420px] object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.02]"
+                />
               </div>
             </div>
             <div className={`lg:col-span-6 space-y-6 transition-all duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] ${advantageVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>

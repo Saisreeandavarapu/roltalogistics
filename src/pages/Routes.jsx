@@ -4,6 +4,8 @@ import RouteCard from '../components/RouteCard';
 import RouteNetwork from '../components/RouteNetwork';
 import CTASection from '../components/CTASection';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema } from '../seoConfig';
 
 export default function Routes() {
   const [hubRef, hubVisible] = useScrollReveal({ threshold: 0.15 });
@@ -73,6 +75,18 @@ export default function Routes() {
 
   return (
     <div className="space-y-0">
+      {/* Dynamic SEO & Breadcrumb Schema */}
+      <SEO
+        title="Pan-India Logistics Routes & Daily Freight Corridors | roltaLogistics"
+        description="Explore roltaLogistics primary daily truck corridors connecting Hyderabad to Bhubaneswar, Kolkata, Siliguri, Guwahati, and full-load freight routes across India."
+        canonical="/routes"
+        keywords="Logistics routes India, Hyderabad freight corridors, Kolkata truck transport, Bhubaneswar goods carrier, Siliguri cargo logistics, Guwahati road transport"
+        schema={getBreadcrumbSchema([
+          { name: 'Home', url: '/' },
+          { name: 'Routes', url: '/routes' },
+        ])}
+      />
+
       {/* Routes Hero */}
       <section className="bg-white border-b border-gray-200 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

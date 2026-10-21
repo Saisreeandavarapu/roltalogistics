@@ -8,6 +8,8 @@ import ProcessSection from '../components/ProcessSection';
 import CTASection from '../components/CTASection';
 import trustedTruckImg from '../assets/images/hero_truck_warehouse.png';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import SEO from '../components/SEO';
+import { getOrganizationSchema } from '../seoConfig';
 
 export default function Home() {
   const [trustedRef, trustedVisible] = useScrollReveal({ threshold: 0.15 });
@@ -82,6 +84,15 @@ export default function Home() {
 
   return (
     <div className="space-y-0">
+      {/* Dynamic SEO & JSON-LD Structured Data */}
+      <SEO
+        title="roltaLogistics | Full Truck Load (FTL) Transportation Across India"
+        description="roltaLogistics provides reliable Full Truck Load (FTL) truck transportation across India, with dedicated daily routes connecting Hyderabad to Bhubaneswar, Kolkata, Siliguri, Guwahati, and Pan-India destinations."
+        canonical="/"
+        schema={getOrganizationSchema()}
+        keywords="Logistics company Hyderabad, Full Truck Load FTL, goods transportation services India, freight and cargo services, road transport company, commercial logistics solutions"
+      />
+
       {/* 1. Hero Section */}
       <Hero />
 
@@ -101,7 +112,11 @@ export default function Home() {
               >
                 <img
                   src={trustedTruckImg}
-                  alt="roltaLogistics Heavy Freight Truck"
+                  alt="Full Truck Load Freight Transport at Warehouse Dock - roltaLogistics"
+                  loading="lazy"
+                  decoding="async"
+                  width="700"
+                  height="440"
                   className="w-full h-[360px] sm:h-[440px] object-cover transition-transform duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover/img:scale-[1.02]"
                 />
               </div>

@@ -63,7 +63,11 @@ export default function Footer() {
             <Link to="/" className="inline-block">
               <img
                 src={logoWhiteImg}
-                alt="roltaLogistics Logo"
+                alt="roltaLogistics - Full Truck Load Freight Logistics Across India"
+                loading="lazy"
+                decoding="async"
+                width="160"
+                height="40"
                 className="h-10 w-auto object-contain"
               />
             </Link>

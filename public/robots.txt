@@ -1,0 +1,8 @@
+# robots.txt for Rolta Logistics
+# Allow all major search engine crawlers to crawl all public pages
+
+User-agent: *
+Allow: /
+
+# Reference to the XML Sitemap
+Sitemap: https://roltalogistics.com/sitemap.xml

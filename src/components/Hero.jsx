@@ -362,7 +362,12 @@ export default function Hero() {
         >
           <img
             src={slide.img}
-            alt="roltaLogistics Heavy Freight Truck"
+            alt={`roltaLogistics - ${slide.tag} Commercial Heavy Freight Truck`}
+            loading={idx === 0 ? 'eager' : 'lazy'}
+            fetchPriority={idx === 0 ? 'high' : 'auto'}
+            decoding={idx === 0 ? 'sync' : 'async'}
+            width="1920"
+            height="1080"
             className={`w-full h-full object-cover object-center ${idx === currentIndex ? 'hero-img-active' : 'scale-100'
               }`}
           />

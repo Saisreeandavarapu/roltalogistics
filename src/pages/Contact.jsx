@@ -2,13 +2,49 @@ import React from 'react';
 import { Phone, MapPin, ExternalLink, ShieldCheck, Truck } from 'lucide-react';
 import ContactForm from '../components/ContactForm';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import SEO from '../components/SEO';
+import { getBreadcrumbSchema, BUSINESS_INFO, SITE_URL } from '../seoConfig';
 
 export default function Contact() {
   const [infoRef, infoVisible] = useScrollReveal({ threshold: 0.15 });
   const [mapsRef, mapsVisible] = useScrollReveal({ threshold: 0.15 });
 
+  const contactSchema = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ContactPage',
+      'name': 'Contact roltaLogistics',
+      'description': 'Contact roltaLogistics to book Full Truck Load freight transport or request a price quote.',
+      'url': `${SITE_URL}/contact`,
+      'mainEntity': {
+        '@type': 'LogisticsService',
+        'name': BUSINESS_INFO.name,
+        'telephone': BUSINESS_INFO.telephone,
+        'hasMap': BUSINESS_INFO.mapsUrl,
+        'address': {
+          '@type': 'PostalAddress',
+          'addressLocality': BUSINESS_INFO.address.addressLocality,
+          'addressRegion': BUSINESS_INFO.address.addressRegion,
+          'addressCountry': BUSINESS_INFO.address.addressCountry,
+        },
+      },
+    },
+    getBreadcrumbSchema([
+      { name: 'Home', url: '/' },
+      { name: 'Contact Us', url: '/contact' },
+    ]),
+  ];
+
   return (
     <div className="space-y-0">
+      {/* Dynamic SEO & Contact Schema */}
+      <SEO
+        title="Contact roltaLogistics | Request a Logistics Quotation"
+        description="Contact roltaLogistics to request a Full Truck Load (FTL) quote. Direct phone support (+91 77831589), verified Google Maps location, and fast freight dispatch planning."
+        canonical="/contact"
+        keywords="Contact logistics company, request logistics quotation, truck transport quote, freight rates Hyderabad, FTL pricing India"
+        schema={contactSchema}
+      />
       {/* Contact Hero Header */}
       <section className="bg-white border-b border-gray-200 py-12 sm:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
