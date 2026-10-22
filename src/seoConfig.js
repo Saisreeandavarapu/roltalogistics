@@ -17,10 +17,10 @@ export const BUSINESS_INFO = {
     addressCountry: 'IN',
   },
   geo: {
-    latitude: '17.3850',
-    longitude: '78.4867',
+    latitude: '17.3068065',
+    longitude: '78.4463182',
   },
-  mapsUrl: 'https://maps.app.goo.gl/tGRmDj36vXuapWND6?g_st=aw',
+  mapsUrl: 'https://maps.app.goo.gl/VQC5jycFRkww5GW39',
   priceRange: '₹₹₹',
   currenciesAccepted: 'INR',
   paymentAccepted: 'Bank Transfer, Cheque, Commercial Invoice',

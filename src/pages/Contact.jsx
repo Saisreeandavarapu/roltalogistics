@@ -66,14 +66,13 @@ export default function Contact() {
       <section ref={infoRef} className="py-16 sm:py-24 bg-[#F7F9FC] border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            
+
             {/* Left Contact Information Column */}
             <div
-              className={`lg:col-span-5 space-y-8 transition-all duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                infoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
+              className={`lg:col-span-5 space-y-8 transition-all duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] ${infoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
             >
-              
+
               <div className="bg-white border border-gray-200 p-8 shadow-xs space-y-6">
                 <h2 className="text-xl font-extrabold text-[#111827] pb-3 border-b border-gray-100">
                   Direct Contact Information
@@ -144,7 +143,7 @@ export default function Contact() {
 
                 <div className="pt-2">
                   <a
-                    href="https://maps.app.goo.gl/tGRmDj36vXuapWND6?g_st=aw"
+                    href={BUSINESS_INFO.mapsUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center w-full px-5 py-3 bg-[#F6DE50] hover:bg-[#ebd23c] text-[#111827] font-bold text-xs border border-[#e0c735] transition-all duration-200 hover:-translate-y-0.5 active:scale-98 group"
@@ -159,9 +158,8 @@ export default function Contact() {
 
             {/* Right Quote Request Form Column */}
             <div
-              className={`lg:col-span-7 transition-all duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                infoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-              }`}
+              className={`lg:col-span-7 transition-all duration-800 ease-[cubic-bezier(0.22,1,0.36,1)] ${infoVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+                }`}
               style={{ transitionDelay: '150ms' }}
             >
               <ContactForm />
@@ -175,14 +173,13 @@ export default function Contact() {
       <section ref={mapsRef} className="py-16 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
-            className={`bg-[#F7F9FC] border border-gray-200 p-8 text-center max-w-4xl mx-auto space-y-4 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              mapsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
-            }`}
+            className={`bg-[#F7F9FC] border border-gray-200 p-8 text-center max-w-4xl mx-auto space-y-4 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${mapsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+              }`}
           >
             <div className="w-12 h-12 bg-white text-[#2567A8] border border-gray-200 flex items-center justify-center mx-auto">
               <MapPin className="w-6 h-6" />
             </div>
-            
+
             <h3 className="text-xl font-extrabold text-[#111827]">
               Google Maps Location
             </h3>
@@ -193,7 +190,7 @@ export default function Contact() {
 
             <div className="pt-2">
               <a
-                href="https://maps.app.goo.gl/tGRmDj36vXuapWND6?g_st=aw"
+                href={BUSINESS_INFO.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center px-6 py-3 bg-[#111827] hover:bg-[#2567A8] text-white text-xs font-bold uppercase tracking-wider transition-all duration-200 hover:-translate-y-0.5 active:scale-98 border border-gray-700"

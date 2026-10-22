@@ -1,0 +1,207 @@
+/* ==========================================================================
+   ROLTA LOGISTICS — CINEMATIC TRANSPARENT GLASS HEADER STYLESHEET
+   Brand Palette:
+     - Transparent Header:   rgba(8, 27, 51, 0.18)
+     - Scrolled / Solid Glass: rgba(8, 27, 51, 0.88)
+     - Deep Navy Surface:    #081B33
+     - Navigation Text:      #FFFFFF
+     - Muted Gold Accent:    #D8B66A
+     - Muted Gold Hover:     #E0C27B
+     - Subtle Border:        rgba(255, 255, 255, 0.14)
+   ========================================================================== */
+
+:root {
+  --rolta-glass-trans: rgba(8, 27, 51, 0.18);
+  --rolta-glass-scrolled: rgba(8, 27, 51, 0.88);
+  --rolta-navy-deep: #081B33;
+  --rolta-text-white: #FFFFFF;
+  --rolta-gold: #D8B66A;
+  --rolta-gold-hover: #E0C27B;
+  --rolta-border-subtle: rgba(255, 255, 255, 0.14);
+  --rolta-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Glass Header Base */
+.rolta-glass-header {
+  transition: 
+    background-color 280ms var(--rolta-ease),
+    backdrop-filter 280ms var(--rolta-ease),
+    -webkit-backdrop-filter 280ms var(--rolta-ease),
+    border-color 280ms var(--rolta-ease),
+    box-shadow 280ms var(--rolta-ease),
+    height 280ms var(--rolta-ease);
+  will-change: background-color, backdrop-filter, height;
+}
+
+/* Unscrolled state on homepage over hero image */
+.rolta-glass-header.is-transparent {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 27, 51, 0.65) 0%,
+    rgba(8, 27, 51, 0.28) 60%,
+    rgba(8, 27, 51, 0.18) 100%
+  );
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+/* Scrolled state or on non-home pages (dark navy glass) */
+.rolta-glass-header.is-scrolled {
+  background-color: var(--rolta-glass-scrolled);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--rolta-border-subtle);
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.45);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not ((-webkit-backdrop-filter: blur(16px)) or (backdrop-filter: blur(16px))) {
+  .rolta-glass-header.is-scrolled {
+    background-color: #081B33 !important;
+  }
+  .rolta-glass-header.is-transparent {
+    background-color: rgba(8, 27, 51, 0.75) !important;
+  }
+}
+
+/* Navigation Links */
+.rolta-glass-nav-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  font-family: "Plus Jakarta Sans", "Manrope", system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 14.5px;
+  letter-spacing: -0.01em;
+  padding: 8px 14px;
+  border-radius: 8px;
+  transition: color 200ms ease, background-color 200ms ease;
+  text-decoration: none;
+}
+
+.rolta-glass-nav-item:hover {
+  color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Animated Muted Gold Underline */
+.rolta-glass-nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--rolta-gold);
+  border-radius: 999px;
+  transform: translateX(-50%);
+  transition: width 220ms var(--rolta-ease);
+}
+
+.rolta-glass-nav-item:hover::after {
+  width: calc(100% - 24px);
+}
+
+.rolta-glass-nav-item.active {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+
+.rolta-glass-nav-item.active::after {
+  width: calc(100% - 20px);
+  background-color: var(--rolta-gold);
+}
+
+/* Primary Muted Gold CTA Button */
+.rolta-glass-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--rolta-gold);
+  color: var(--rolta-navy-deep);
+  font-family: "Plus Jakarta Sans", "Manrope", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  border-radius: 10px;
+  padding: 11px 22px;
+  box-shadow: 0 4px 14px -2px rgba(216, 182, 106, 0.28);
+  transition: transform 200ms var(--rolta-ease), background-color 200ms var(--rolta-ease), box-shadow 200ms var(--rolta-ease);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.rolta-glass-cta:hover {
+  background-color: var(--rolta-gold-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -2px rgba(216, 182, 106, 0.38);
+}
+
+.rolta-glass-cta:active {
+  transform: translateY(0px) scale(0.99);
+}
+
+/* Phone Action */
+.rolta-glass-phone {
+  display: inline-flex;
+  align-items: center;
+  color: #FFFFFF;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background-color 200ms ease, color 200ms ease;
+  text-decoration: none;
+}
+
+.rolta-glass-phone:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile Drawer Keyframe Animations */
+@keyframes roltaGlassDrawerSlide {
+  from {
+    transform: translateX(100%);
+    opacity: 0.7;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes roltaGlassBackdropFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.rolta-glass-drawer-slide {
+  animation: roltaGlassDrawerSlide 260ms var(--rolta-ease) forwards;
+  will-change: transform, opacity;
+}
+
+.rolta-glass-backdrop-fade {
+  animation: roltaGlassBackdropFade 220ms ease forwards;
+  will-change: opacity;
+}
+
+/* Accessibility: Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .rolta-glass-header,
+  .rolta-glass-nav-item,
+  .rolta-glass-nav-item::after,
+  .rolta-glass-cta,
+  .rolta-glass-phone,
+  .rolta-glass-drawer-slide,
+  .rolta-glass-backdrop-fade {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}

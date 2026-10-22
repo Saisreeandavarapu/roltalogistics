@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, MapPin, ExternalLink, Truck, ShieldCheck, Route } from 'lucide-react';
 import logoWhiteImg from '../assets/logo/logo-white.png';
 import { useScrollReveal } from '../hooks/useScrollReveal';
+import { BUSINESS_INFO } from '../seoConfig';
 
 export default function Footer() {
   const [footerRef, isVisible] = useScrollReveal({ threshold: 0.1 });
@@ -13,9 +14,8 @@ export default function Footer() {
       <div className="border-b border-gray-800 bg-[#0b101b]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div
-            className={`grid grid-cols-1 md:grid-cols-3 gap-6 text-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
+            className={`grid grid-cols-1 md:grid-cols-3 gap-6 text-sm transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
           >
             <div className="flex items-center space-x-3 text-gray-300">
               <div className="p-2 bg-gray-800/80 text-[#F6DE50] border border-gray-700">
@@ -55,9 +55,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Column 1: Logo & Info */}
           <div
-            className={`space-y-4 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
+            className={`space-y-4 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
             style={{ transitionDelay: '60ms' }}
           >
             <Link to="/" className="inline-block">
@@ -83,9 +82,8 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div
-            className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
+            className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
             style={{ transitionDelay: '120ms' }}
           >
             <h3 className="text-sm font-bold tracking-wider text-[#F6DE50] uppercase mb-4 pb-2 border-b border-gray-800">
@@ -142,9 +140,8 @@ export default function Footer() {
 
           {/* Column 3: Logistics Services */}
           <div
-            className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
+            className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
             style={{ transitionDelay: '180ms' }}
           >
             <h3 className="text-sm font-bold tracking-wider text-[#F6DE50] uppercase mb-4 pb-2 border-b border-gray-800">
@@ -172,9 +169,8 @@ export default function Footer() {
 
           {/* Column 4: Contact & Location */}
           <div
-            className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
+            className={`transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
             style={{ transitionDelay: '240ms' }}
           >
             <h3 className="text-sm font-bold tracking-wider text-[#F6DE50] uppercase mb-4 pb-2 border-b border-gray-800">
@@ -191,7 +187,7 @@ export default function Footer() {
 
               <div className="pt-2">
                 <a
-                  href="https://maps.app.goo.gl/tGRmDj36vXuapWND6?g_st=aw"
+                  href={BUSINESS_INFO.mapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center px-4 py-2 bg-gray-800 hover:bg-gray-700 text-gray-200 hover:text-white border border-gray-700 transition-all duration-200 hover:-translate-y-0.5 text-xs font-semibold"
