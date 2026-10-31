@@ -3,19 +3,30 @@
 # SPA Routing, Core Web Vitals Performance, Caching & Security Headers
 # ==============================================================================
 
+# Prevent directory content negotiation from conflicting with route names
+Options -MultiViews
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Force HTTPS if SSL is configured
-  # RewriteCond %{HTTPS} !=on
-  # RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+  # Do not rewrite requests for the index page itself
+  RewriteRule ^index\.html$ - [L]
 
-  # Direct SPA Router fallback - allow direct visits to /about, /services, etc.
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  # If requested file or directory exists physically, serve it directly
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # Direct SPA Router fallback - allow direct visits and refreshes on /about, /services, etc.
+  RewriteRule ^ /index.html [L]
 </IfModule>
+
+# Fallback error handling if mod_rewrite is disabled or bypassed
+<IfModule !mod_rewrite.c>
+  ErrorDocument 404 /index.html
+</IfModule>
+ErrorDocument 404 /index.html
 
 # Browser Caching for Performance (Core Web Vitals)
 <IfModule mod_expires.c>
