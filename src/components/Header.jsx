@@ -32,7 +32,7 @@ export default function Header() {
   const drawerRef = useRef(null);
 
   /* ============================================================
-     1. PASSIVE SCROLL LISTENER (Triggers shrink & shadow at 50px)
+     1. PASSIVE SCROLL LISTENER (Triggers shrink & shadow at 40px)
      ============================================================ */
   useEffect(() => {
     let ticking = false;
@@ -40,7 +40,7 @@ export default function Header() {
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          setIsScrolled(window.scrollY > 50);
+          setIsScrolled(window.scrollY > 40);
           ticking = false;
         });
         ticking = true;
@@ -118,23 +118,15 @@ export default function Header() {
     };
   }, [mobileMenuOpen]);
 
-  const isHome = location.pathname === '/';
-
   return (
     <>
-      <header className="fixed top-0 left-0 right-0 z-50 w-full font-sans transition-all duration-300">
-        {/* ============================================================
-            TOP UTILITY BAR — DEEP / DARK NAVY (#061633)
-            Height: 38-42px. Left: Truck + FTL, Center: Corridors, Right: Phone
-            ============================================================ */}
-        <div
-          className={`w-full bg-[#061633] text-white border-b border-white/10 transition-all duration-300 ${
-            isScrolled
-              ? 'h-0 opacity-0 overflow-hidden border-transparent'
-              : 'h-10 opacity-100'
-          }`}
-        >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between text-xs">
+      {/* ============================================================
+          TOP UTILITY BAR — DEEP / DARK NAVY (#061633)
+          Height: 40px. Left: Truck + FTL, Center: Corridors, Right: Phone
+          Natural scroll-away in normal document flow
+          ============================================================ */}
+      <div className="w-full bg-[#061633] text-white border-b border-white/10 font-sans">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-10 flex items-center justify-between text-xs">
           {/* Left: Truck icon + FTL Transportation */}
           <div className="flex items-center gap-2 text-white/90 shrink-0">
             <Truck className="w-3.5 h-3.5 text-[#FFDF38] shrink-0" />
@@ -166,16 +158,19 @@ export default function Header() {
       </div>
 
       {/* ============================================================
-          MAIN NAVIGATION BAR — DUAL TONE LAYOUT
+          MAIN NAVIGATION BAR — STICKY AT TOP: 0
           - Left: Premium Yellow (#FFDF38) with Rolta Logo & Diagonal Slant
           - Right / Center: Deep Navy (#091E4B) with Nav Links & CTA
+          Sticks seamlessly to top: 0 without leaving any gap above or below
           ============================================================ */}
-      <div
-        className={`relative w-full bg-[#091E4B] transition-all duration-300 ${isScrolled
-            ? 'h-[72px] sm:h-[74px] shadow-xl shadow-black/30'
-            : 'h-[86px] sm:h-[90px] shadow-md shadow-black/15'
+      <header className="sticky top-0 z-50 w-full font-sans">
+        <div
+          className={`relative w-full bg-[#091E4B] transition-all duration-300 ${
+            isScrolled
+              ? 'h-[72px] sm:h-[74px] shadow-xl shadow-black/30'
+              : 'h-[86px] sm:h-[90px] shadow-md shadow-black/15'
           }`}
-      >
+        >
         <div className="max-w-[1440px] mx-auto h-full flex items-center justify-between relative">
           {/* ------------------------------------------------------------
               LEFT 25-28%: PREMIUM YELLOW LOGO CONTAINER WITH DIAGONAL CUT
@@ -454,14 +449,6 @@ export default function Header() {
         }
       `}</style>
     </header>
-
-    {/* Non-home pages spacer to preserve layout flow beneath fixed header */}
-    {!isHome && (
-      <div
-        className="w-full h-[126px] sm:h-[130px] shrink-0 pointer-events-none"
-        aria-hidden="true"
-      />
-    )}
   </>
   );
 }

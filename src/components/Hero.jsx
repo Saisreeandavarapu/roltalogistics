@@ -378,14 +378,14 @@ export default function Hero() {
       ))}
 
       {/* Main Full-Bleed Content Container */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[144px] sm:pt-[154px] lg:pt-[168px] pb-20 sm:pb-24 flex flex-col justify-between min-h-[620px] sm:min-h-[680px] lg:min-h-[740px]">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 sm:pt-16 lg:pt-20 pb-16 sm:pb-20 flex flex-col justify-between min-h-[540px] sm:min-h-[600px] lg:min-h-[640px]">
 
         {/* Top Watermark Typography & Hero Content */}
         <div className="relative">
 
           {/* Outlined Watermark Text matching reference image */}
           <div
-            className="absolute -top-6 sm:-top-10 left-0 text-stroke-watermark text-6xl sm:text-8xl lg:text-[140px] font-black uppercase tracking-widest pointer-events-none select-none z-0 whitespace-nowrap opacity-70"
+            className="absolute -top-8 sm:-top-12 lg:-top-14 left-0 text-stroke-watermark text-6xl sm:text-8xl lg:text-[140px] font-black uppercase tracking-widest pointer-events-none select-none z-0 whitespace-nowrap opacity-70"
             aria-hidden="true"
           >
             LOGISTICS
